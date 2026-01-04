@@ -1,13 +1,6 @@
 a.mod_blogroll,
 a.mod_blogroll:visited {
-    color: currentColor;
     text-decoration: none;
-}
-
-a.mod_blogroll:hover,
-a.mod_blogroll:active {
-    color: blue;
-    text-decoration: underline;
 }
 
 h6.mod_blogroll {

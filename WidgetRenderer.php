@@ -1,7 +1,12 @@
 <?php
 $feedCount = count($feeds);
-$limitItems = $params->get('rssitems_limit', 1);
-$itemDisplayCount = $limitItems ? $params->get('rssitems_limit_count', 5) : $feedCount;
+
+# $limitItems = $params->get('rssitems_limit', 1);
+$limitItems = false;
+
+# $itemDisplayCount = $limitItems ? $params->get('rssitems_limit_count', 5) : $feedCount;
+$itemDisplayCount = $feedCount;
+
 for ($i = 0; $i < $feedCount; $i++) {
 
 	if ($i == $itemDisplayCount) {
