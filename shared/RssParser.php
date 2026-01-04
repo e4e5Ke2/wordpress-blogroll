@@ -27,6 +27,9 @@ class RssParser
             return null;
 
         $itemNode = $this->first_tag_match($feedNode, RssParser::$itemTags);
+        
+        if (!$itemNode)
+            return null;
 
         $feed->feedTitle = $feedNode->title;
         $feed->itemTitle = $itemNode->title;
