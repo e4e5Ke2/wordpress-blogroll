@@ -27,7 +27,7 @@ class RssParser
             return null;
 
         $itemNode = $this->first_tag_match($feedNode, RssParser::$itemTags);
-        
+
         if (!$itemNode)
             return null;
 
@@ -36,10 +36,8 @@ class RssParser
 
         $feed->pubDate = new DateTime($this->first_tag_match($itemNode, RssParser::$pubDateTags));
         $feed->timeDifference = match ($params->get('rssitemdate', '1')) {
-            '0' => '',
             '1' => $this->get_time_difference($feed->pubDate, $translations),
-            '2' => $feed->pubDate->format('d.m.Y'),
-            '3' => $feed->pubDate->format('m.d.Y')
+            default => ''
         };
 
         $feed->description = $this->first_tag_match($itemNode, RssParser::$descriptionTags);
@@ -64,8 +62,12 @@ class RssParser
         $showAuthor = $feed->author && $params->get('rssauthor', 1);
         $authorLabel = $showAuthor ? $translations->get('MOD_BLOGROLL_BY') . ' ' . $feed->author : '';
 
-        if ($showAuthor || $feed->timeDifference) {
-            $feed->authorDateLabel = join(' • ', array_filter([$authorLabel, $feed->timeDifference]));
+        if ($showAuthor && $feed->timeDifference) {
+            $feed->authorDateLabel = join(' • ', [$authorLabel, $feed->timeDifference]);
+        } else if ($showAuthor) {
+            $feed->authorDateLabel = $authorLabel;
+        } else if ($feed->timeDifference) {
+            $feed->authorDateLabel = $feed->timeDifference;
         }
 
         return $feed;

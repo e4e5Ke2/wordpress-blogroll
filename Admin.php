@@ -50,24 +50,6 @@ function presentForm($widget, $instance, $translations)
     label($rssDate);
 
     echo '<p>';
-    ?>
-
-    <label for=<?= $rssDateFormat['field_name']; ?>><?= $rssDateFormat['label']; ?></label>
-
-    <select name=<?= $rssDateFormat['field_name']; ?> id=<?= $rssDateFormat['field_id']; ?>>
-        <option value="0" <?= $rssDateFormat['value'] == '0' ? 'selected' : ''; ?>>
-            <?= $translations->get('MOD_BLOGROLL_FIELD_DATE_FORMAT_OPTION_0'); ?>
-        </option>
-        <option value="1" <?= $rssDateFormat['value'] == '1' ? 'selected' : ''; ?>>
-            <?= $translations->get('MOD_BLOGROLL_FIELD_DATE_FORMAT_OPTION_1'); ?>
-        </option>
-        <option value="2" <?= $rssDateFormat['value'] == '2' ? 'selected' : ''; ?>>
-            <?= $translations->get('MOD_BLOGROLL_FIELD_DATE_FORMAT_OPTION_2'); ?>
-        </option>
-    </select>
-
-    <?php
-    echo '</p>';
 
 }
 

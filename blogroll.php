@@ -2,7 +2,7 @@
 
 /**
  * @package Blogroll
- * @version 1.0.0
+ * @version 1.0.1
  */
 /*
 Plugin Name: Blogroll
@@ -10,7 +10,7 @@ Description: A plugin that aggregates multiple feeds to display their most recen
 Text Domain: blogroll
 Domain Path: /languages
 Author: Alexander Bach
-Version: 1.0.0
+Version: 1.0.1
 */
 
 require 'shared/FeedHelper.php';
